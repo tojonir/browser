@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:none;stroke:#000000;stroke-width:0.1;stroke-miterlimit:10;}
+	.st4{display:inline;fill:none;stroke:#000000;stroke-width:0.1;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<g class="st0">
+	<g class="st1">
+		<polygon class="st2" points="0,50 0.1,0 50,0.1 50,50 		"/>
+		<path d="M49.9,0.1v49.8H0.1V0.1H49.9 M50,0H0v50h50V0L50,0z"/>
+	</g>
+	<g class="st1">
+		<polygon class="st2" points="0,50 0.1,0 50,0.1 50,50 		"/>
+		<path d="M49.9,0.1v49.8H0.1V0.1H49.9 M50,0H0v50h50V0L50,0z"/>
+	</g>
+	<g class="st1">
+		<polygon class="st2" points="0,50 0.1,0 50,0.1 50,50 		"/>
+		<path d="M49.9,0.1v49.8H0.1V0.1H49.9 M50,0H0v50h50V0L50,0z"/>
+	</g>
+	<g class="st1">
+		<circle class="st2" cx="25" cy="25" r="25"/>
+		<path d="M25,0.1c13.7,0,24.9,11.2,24.9,24.9S38.7,49.9,25,49.9S0.1,38.7,0.1,25S11.3,0.1,25,0.1 M25,0C11.2,0,0,11.2,0,25
+			s11.2,25,25,25s25-11.2,25-25S38.8,0,25,0L25,0z"/>
+	</g>
+	<g class="st1">
+		<line class="st3" x1="0" y1="0" x2="50" y2="50"/>
+	</g>
+	<line class="st4" x1="0" y1="50" x2="50" y2="0"/>
+	<rect y="12.5" class="st4" width="50" height="25"/>
+	<line class="st4" x1="50" y1="25" x2="0" y2="25"/>
+	<rect x="12.5" class="st4" width="25" height="50"/>
+	<line class="st4" x1="25" y1="0" x2="25" y2="50"/>
+	<rect x="7" y="7" class="st4" width="36" height="36"/>
+	<rect x="7" y="7" class="st4" width="36" height="36"/>
+	<circle class="st4" cx="25" cy="25" r="18"/>
+	<circle class="st4" cx="25" cy="25" r="12"/>
+	<circle class="st4" cx="25.3" cy="25.3" r="6.3"/>
+</g>
+<g class="st0">
+	<path class="st1" d="M25,10c8.3,0,15,6.7,15,15s-6.7,15-15,15s-15-6.7-15-15S16.7,10,25,10 M25,7C15.1,7,7,15.1,7,25s8.1,18,18,18
+		s18-8.1,18-18S34.9,7,25,7L25,7z"/>
+</g>
+<line class="st5" x1="25" y1="13" x2="25" y2="37"/>
+<line class="st5" x1="13" y1="25" x2="37" y2="25"/>
+</svg>

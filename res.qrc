@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>back.svg</file>
+        <file>forward.svg</file>
+        <file>reload.svg</file>
+        <file>plus.svg</file>
+        <file>http.svg</file>
+        <file>https.svg</file>
+        <file>humb.svg</file>
+    </qresource>
+</RCC>
