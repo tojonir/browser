@@ -2,12 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QToolButton>
-#include <QMouseEvent>
-#include <QLineEdit>
-#include <QTabBar>
+#include "widget.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -20,13 +15,12 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    myTab *tab;
     ~MainWindow();
-    QTabWidget *tab = new QTabWidget();
-    QToolButton *plusbtn = new QToolButton();
+
 
 
 public slots:
-    void addTab();
 
 signals:
 

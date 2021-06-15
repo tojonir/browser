@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance mode</title>
+    <link rel="shortcut icon" href="./asset/img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+<body>
+    <!-- Messenger Plug-in Discussion Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plug-in Discussion code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "100269498787246");
+      chatbox.setAttribute("attribution", "biz_inbox");
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v10.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
+    <div class="container">
+        <div class="row h-100">
+            <div class="d-flex flex-row justify-content-evenly">
+                <div class="d-flex justify-content-center flex-column">
+                    <img class="image" src="./asset/img/maintenance.png" alt="">
+                </div>
+                <div class="d-flex justify-content-center flex-column">
+                    <h1 class="text-light">Maintenance mode</h1>
+                    <p class="text-light">We will be back soon</p>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>
