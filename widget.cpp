@@ -156,12 +156,7 @@ myWebview *myTab::newTab(){
 
     connect(webview,&QWebEngineView::loadStarted,this,[this,insertedTab,moved](){
         QIcon icon(":/images/loading.png");
-        int index;
-        if (this->currentIndex() != insertedTab){
-            index = this->currentIndex();
-        }else{
-            index = insertedTab;
-        }
+        int index = insertedTab;
         tabBar->setTabIcon(index,icon);
         tabBar->setTabText(index,"loading...");
         qDebug() << moved;
@@ -177,10 +172,6 @@ myWebview *myTab::newTab(){
         qDebug() << "finished";
     });
 
-    connect(tabBar,&QTabBar::tabMoved,this,[moved](int from,int to) mutable->int{
-        moved = from;
-        return from;
-    });
 
 
     return webview;
