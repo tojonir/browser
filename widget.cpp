@@ -59,9 +59,22 @@ myTab::myTab(){
     newTab();
 }
 
-//void myTabBar::mousePressEvent(QMouseEvent *e){
-//    qDebug("bar");
-//}
+
+void myTabBar::mousePressEvent(QMouseEvent *e){
+    if (e->button()==2){
+           QMenu *menu = new QMenu();
+           menu->addAction("new Tab");
+           menu->addSeparator();
+           QAction *reload = menu->addAction("reload");
+           menu->addAction("Pin");
+           menu->addSeparator();
+           menu->addAction("close");
+           menu->addAction("close other tabs");
+           menu->addAction("close tabs to the right");
+           menu->exec(e->globalPos());
+    }
+    QTabBar::mousePressEvent(e);
+}
 
 
 myWebview *myTab::newTab(){
@@ -108,7 +121,6 @@ myWebview *myTab::newTab(){
 
     QPushButton *menuBtn = new myButton(QIcon(":/images/humb.svg"),"header_icon");
     myMenu *menu = new myMenu(menuBtn);
-    connect(menu->newTab,&QAction::triggered,this,[this](){this->newTab();});
     menuBtn->setMenu(menu);
     hbox->addWidget(menuBtn);
 
@@ -148,9 +160,14 @@ myWebview *myTab::newTab(){
         webview->forward();
     });
 
-    connect(webview,&QWebEngineView::urlChanged,this,[webview,bar](const QUrl &url){
+    connect(webview,&QWebEngineView::urlChanged,this,[webview,bar,status](const QUrl &url){
         webview->load(url);
         bar->setText(url.toString());
+        if (url.scheme() != "https"){
+            status->setIcon(QIcon(":/images/https.svg"));
+        }else{
+            status->setIcon(QIcon(":/images/http.svg"));
+        }
         qDebug() << url;
     });
 
@@ -170,6 +187,28 @@ myWebview *myTab::newTab(){
     connect(webview,&QWebEngineView::iconChanged,this,[this,insertedTab](const QIcon &icon){
         tabBar->setTabIcon(insertedTab,icon);
         qDebug() << "finished";
+    });
+
+    connect(bar,&QLineEdit::returnPressed,this,[webview,bar](){
+            QUrl url = QUrl(bar->text());
+            if (url.scheme() == ""){
+                url.setScheme("http");
+                webview->load(QUrl("https://www.google.com/search?q=" + bar->text()));
+            }else{
+               webview->load(QUrl(url));
+            }
+
+    });
+
+    connect(menu->newTab,&QAction::triggered,this,[this](){this->newTab();});
+    connect(menu->zoomin,&QAction::triggered,this,[webview](){
+        webview->setZoomFactor(webview->zoomFactor()+0.1);
+    });
+    connect(menu->zoomout,&QAction::triggered,this,[webview](){
+        webview->setZoomFactor(webview->zoomFactor()-0.1);
+    });
+    connect(menu->zoomfit,&QAction::triggered,this,[webview](){
+        webview->setZoomFactor(1);
     });
 
 
