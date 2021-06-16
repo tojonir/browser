@@ -8,5 +8,6 @@
         <file>https.svg</file>
         <file>humb.svg</file>
         <file>loading.png</file>
+        <file>close.svg</file>
     </qresource>
 </RCC>

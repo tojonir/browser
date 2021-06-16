@@ -124,22 +124,35 @@ myWebview *myTab::newTab(){
     menuBtn->setMenu(menu);
     hbox->addWidget(menuBtn);
 
-
-
-    QWidget *webContainer = new QWidget();
-    webContainer->setParent(this);
-    webContainer->setObjectName("web");
+    QSplitter *webContainer = new QSplitter(Qt::Horizontal);
     webContainer->setSizePolicy(QSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding));
-    QHBoxLayout *webLayout = new QHBoxLayout();
-    webLayout->setContentsMargins(0,0,0,0);
-    webContainer->setLayout(webLayout);
 
     myWebview *webview = new myWebview;
     webview->setSizePolicy(QSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding));
     int index = this->count() - 1;
     webview->load(QUrl("https://google.com"));
 
-    webLayout->addWidget(webview);
+    QWebEngineView *devtools = new QWebEngineView();
+    QWidget *devtoolContainer = new QWidget();
+    QVBoxLayout *devtoolLayout = new QVBoxLayout();
+    QHBoxLayout *headerDevTool = new QHBoxLayout();
+
+    QLabel *label = new QLabel();
+    label->setText("devtool");
+    QPushButton *closeDevTool = new myButton(QIcon(":/images/close.svg"),"close");
+    closeDevTool->setSizePolicy(QSizePolicy(QSizePolicy::Maximum,QSizePolicy::Expanding));
+    connect(closeDevTool,&QPushButton::clicked,this,[devtoolContainer](){
+        devtoolContainer->hide();
+    });
+    headerDevTool->addWidget(label);
+    headerDevTool->addWidget(closeDevTool);
+    devtoolLayout->addLayout(headerDevTool);
+    devtoolLayout->addWidget(devtools);
+    devtoolContainer->setLayout(devtoolLayout);
+
+    webview->page()->setDevToolsPage(devtools->page());
+
+    webContainer->insertWidget(0,webview);
 
     vbox->addWidget(header);
     vbox->addWidget(webContainer);
@@ -211,7 +224,13 @@ myWebview *myTab::newTab(){
         webview->setZoomFactor(1);
     });
 
-
+    connect(webview,&myWebview::setDevTool,this,[webContainer,devtoolContainer](){
+        bool visible = devtoolContainer->isVisible();
+        if (!visible){
+            webContainer->insertWidget(1,devtoolContainer);
+            devtoolContainer->show();
+        }
+    });
 
     return webview;
 
@@ -234,6 +253,10 @@ void myWebview::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *menu = page()->createStandardContextMenu();
     const QList<QAction *> actions = menu->actions();
+    QAction *inspect = actions[actions.count() - 1];
+    connect(inspect,&QAction::triggered,this,[this](){
+        emit setDevTool();
+    });
 
     menu->popup(event->globalPos());
 }

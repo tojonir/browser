@@ -16,6 +16,8 @@
 #include <QHBoxLayout>
 #include <QContextMenuEvent>
 #include <QUrl>
+#include <QSplitter>
+#include <QLabel>
 #include <QObject>
 
 class myWebview;
@@ -55,6 +57,7 @@ protected:
 
 signals:
     void createNewTab();
+    void setDevTool();
 };
 
 class myMenu: public QMenu{
