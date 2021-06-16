@@ -18,11 +18,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    widget.cpp
+    mybutton.cpp \
+    mymenu.cpp \
+    mytab.cpp \
+    mywebview.cpp \
+    tabbar.cpp
 
 HEADERS += \
     mainwindow.h \
-    widget.h
+    mybutton.h \
+    mymenu.h \
+    mytab.h \
+    mywebview.h \
+    tabbar.h
 
 FORMS += \
     mainwindow.ui
