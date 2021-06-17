@@ -3,7 +3,7 @@ it is a web browser built using QWebengine.
 it supports multi tab
 
 # Requirement
-Windows: Microsoft visual studio 2019, Qt5
+Windows: Microsoft visual studio 2019, Qt5;
 Linux: Qt5, QWebengine
 
 # usefull link
